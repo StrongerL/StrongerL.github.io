@@ -45,17 +45,20 @@
   };
 </script>
 
-  <meta name="description" content="江雪 唐·柳宗元 千山鸟飞绝，万径人踪灭。 孤舟蓑笠翁，独钓寒江雪。  &amp;nbsp;">
+  <meta name="description" content="原以为很快能解决的问题却用了接近两天的时间才解决，而实际上如果不踩坑的话并不需要花费太多时间就可以搞定。在这里记录一下。">
+<meta name="keywords" content="硬件,GrovePi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="启程">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;26&#x2F;%E5%90%AF%E7%A8%8B&#x2F;index.html">
+<meta property="og:title" content="GrovePi配置">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;17&#x2F;GrovePi%E9%85%8D%E7%BD%AE&#x2F;index.html">
 <meta property="og:site_name" content="Stronger">
-<meta property="og:description" content="江雪 唐·柳宗元 千山鸟飞绝，万径人踪灭。 孤舟蓑笠翁，独钓寒江雪。  &amp;nbsp;">
+<meta property="og:description" content="原以为很快能解决的问题却用了接近两天的时间才解决，而实际上如果不踩坑的话并不需要花费太多时间就可以搞定。在这里记录一下。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-26T06:26:40.630Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;17&#x2F;GrovePi%E9%85%8D%E7%BD%AE&#x2F;GrovePi%E5%AE%89%E8%A3%85%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg">
+<meta property="og:updated_time" content="2019-12-17T12:57:41.077Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;17&#x2F;GrovePi%E9%85%8D%E7%BD%AE&#x2F;GrovePi%E5%AE%89%E8%A3%85%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg">
 
-<link rel="canonical" href="http://yoursite.com/2019/11/26/%E5%90%AF%E7%A8%8B/">
+<link rel="canonical" href="http://yoursite.com/2019/12/17/GrovePi%E9%85%8D%E7%BD%AE/">
 
 
 <script id="page-configurations">
@@ -69,7 +72,7 @@
   };
 </script>
 
-  <title>启程 | Stronger</title>
+  <title>GrovePi配置 | Stronger</title>
   
 
 
@@ -173,7 +176,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/26/%E5%90%AF%E7%A8%8B/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/17/GrovePi%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -186,7 +189,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          启程
+          GrovePi配置
         </h1>
 
         <div class="post-meta">
@@ -197,7 +200,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-11-26 14:00:42 / 修改时间：14:26:40" itemprop="dateCreated datePublished" datetime="2019-11-26T14:00:42+08:00">2019-11-26</time>
+              <time title="创建时间：2019-12-17 20:46:15 / 修改时间：20:57:41" itemprop="dateCreated datePublished" datetime="2019-12-17T20:46:15+08:00">2019-12-17</time>
             </span>
 
           
@@ -218,15 +221,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <center>江雪</center>
-<center>唐·柳宗元</center>
-<center>千山鸟飞绝，万径人踪灭。</center>
-<center>孤舟蓑笠翁，独钓寒江雪。</center>
- &nbsp; 
+        <p>原以为很快能解决的问题却用了接近两天的时间才解决，而实际上如果不踩坑的话并不需要花费太多时间就可以搞定。在这里记录一下。</p><a id="more"></a>
+<p>刚开始我按照<a href="http://www.dexterindustries.com/GrovePi/get-started-with-the-grovepi/" target="_blank" rel="noopener">DEXTER的Get Started</a>上的内容来配置GrovePi，但是我感觉这个写的太乱了，介绍了几种配置的方式混在一起，说的不是很清楚。后来发现<a href="https://github.com/DexterInd/GrovePi" target="_blank" rel="noopener">github</a>上写的还挺简洁的，就按照github上来了。最大的坑是操作系统的问题，我用的操作系统是树莓派2019-09-26-raspbian-buster版本，配置过程中不断地出错，后来学长提醒我说是版本的问题，buster太新grovepi可能还不兼容。于是我更换了树莓派的版本，换为<a href="https://downloads.raspberrypi.org/raspbian/images/raspbian-2018-11-15/2018-11-13-raspbian-stretch.zip" target="_blank" rel="noopener">2018-11-13-raspbian-stretch</a>，在<a href="https://howchoo.com/g/nzc0yjzjy2u/raspbian-stretch-download" target="_blank" rel="noopener">此处</a>可以下载更多的树莓派操作系统。换了系统之后，问题就变得简单的多了。首先按照下图的方式连接好树莓派和GrovePi，</p>
+<p><img src="GrovePi%E5%AE%89%E8%A3%85%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt="GrovePi安装示意图"></p>
+<p>然后执行下边的命令即可，不过等待时间会很长。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -kL dexterindustries.com/update_grovepi | bash</span><br></pre></td></tr></table></figure>
 
-<a id="more"></a>
+<p>执行完命令之后，会在当前目录下出现一个Dexter文件夹（或者在用户目录下），进入之后看到一个GrovePi文件夹，如果没有的话就再执行一次上边的命令，然后进入GrovePi文件夹，执行如下命令，</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd Firmware</span><br><span class="line">bash firmware_update.sh</span><br></pre></td></tr></table></figure>
 
-<center>以此诗作为我在本站的第一篇博客~</center>
+<p>然后重启一下系统就可以了。</p>
+<p>测试是否安装成功：首先进入到GrovePi目录下，然后输入如下命令，</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd Software/Python/</span><br><span class="line">sudo python grove_firmware_version_check.py</span><br></pre></td></tr></table></figure>
+
+<p>会显示当前GrovePi的版本，这样的话就表示安装成功了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GrovePi has firmware version: 1.4.0</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -236,17 +245,21 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A1%AC%E4%BB%B6/" rel="tag"># 硬件</a>
+              <a href="/tags/GrovePi/" rel="tag"># GrovePi</a>
+          </div>
 
         
 
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2019/12/17/GrovePi%E9%85%8D%E7%BD%AE/" rel="next" title="GrovePi配置">
-      GrovePi配置 <i class="fa fa-chevron-right"></i>
+    <a href="/2019/11/26/%E5%90%AF%E7%A8%8B/" rel="prev" title="启程">
+      <i class="fa fa-chevron-left"></i> 启程
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     

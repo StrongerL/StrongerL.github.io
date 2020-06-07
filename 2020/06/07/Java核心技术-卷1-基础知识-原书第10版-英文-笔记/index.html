@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="一些问题 动态语言  博主注笔记并不全是书中内容，还有从网上等其他途径查的资料。">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java核心技术 卷1 基础知识 原书第10版 英文 笔记">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;07&#x2F;Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%8D%B71-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E5%8E%9F%E4%B9%A6%E7%AC%AC10%E7%89%88-%E8%8B%B1%E6%96%87-%E7%AC%94%E8%AE%B0&#x2F;index.html">
+<meta property="og:site_name" content="Stronger">
+<meta property="og:description" content="一些问题 动态语言  博主注笔记并不全是书中内容，还有从网上等其他途径查的资料。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;07&#x2F;Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%8D%B71-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E5%8E%9F%E4%B9%A6%E7%AC%AC10%E7%89%88-%E8%8B%B1%E6%96%87-%E7%AC%94%E8%AE%B0&#x2F;Java%E5%8F%91%E5%B8%83%E5%8E%86%E5%8F%B2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;07&#x2F;Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%8D%B71-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E5%8E%9F%E4%B9%A6%E7%AC%AC10%E7%89%88-%E8%8B%B1%E6%96%87-%E7%AC%94%E8%AE%B0&#x2F;Java%E4%B8%8B%E8%BD%BD%E7%89%88%E6%9C%AC.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;07&#x2F;Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%8D%B71-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E5%8E%9F%E4%B9%A6%E7%AC%AC10%E7%89%88-%E8%8B%B1%E6%96%87-%E7%AC%94%E8%AE%B0&#x2F;%E4%B8%8B%E8%BD%BDJava14.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;07&#x2F;Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%8D%B71-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E5%8E%9F%E4%B9%A6%E7%AC%AC10%E7%89%88-%E8%8B%B1%E6%96%87-%E7%AC%94%E8%AE%B0&#x2F;JDK%E5%AE%89%E8%A3%85%E5%90%91%E5%AF%BC1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;07&#x2F;Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%8D%B71-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E5%8E%9F%E4%B9%A6%E7%AC%AC10%E7%89%88-%E8%8B%B1%E6%96%87-%E7%AC%94%E8%AE%B0&#x2F;JDK%E5%AE%89%E8%A3%85%E5%90%91%E5%AF%BC2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;07&#x2F;Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%8D%B71-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E5%8E%9F%E4%B9%A6%E7%AC%AC10%E7%89%88-%E8%8B%B1%E6%96%87-%E7%AC%94%E8%AE%B0&#x2F;%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;07&#x2F;Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%8D%B71-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E5%8E%9F%E4%B9%A6%E7%AC%AC10%E7%89%88-%E8%8B%B1%E6%96%87-%E7%AC%94%E8%AE%B0&#x2F;%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;07&#x2F;Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%8D%B71-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E5%8E%9F%E4%B9%A6%E7%AC%AC10%E7%89%88-%E8%8B%B1%E6%96%87-%E7%AC%94%E8%AE%B0&#x2F;%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F3.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;07&#x2F;Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%8D%B71-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E5%8E%9F%E4%B9%A6%E7%AC%AC10%E7%89%88-%E8%8B%B1%E6%96%87-%E7%AC%94%E8%AE%B0&#x2F;%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F4.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;07&#x2F;Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%8D%B71-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E5%8E%9F%E4%B9%A6%E7%AC%AC10%E7%89%88-%E8%8B%B1%E6%96%87-%E7%AC%94%E8%AE%B0&#x2F;%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F5.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;07&#x2F;Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%8D%B71-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E5%8E%9F%E4%B9%A6%E7%AC%AC10%E7%89%88-%E8%8B%B1%E6%96%87-%E7%AC%94%E8%AE%B0&#x2F;%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F.png">
+<meta property="og:updated_time" content="2020-06-07T15:41:57.240Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;07&#x2F;Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%8D%B71-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E5%8E%9F%E4%B9%A6%E7%AC%AC10%E7%89%88-%E8%8B%B1%E6%96%87-%E7%AC%94%E8%AE%B0&#x2F;Java%E5%8F%91%E5%B8%83%E5%8E%86%E5%8F%B2.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/06/07/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%8D%B71-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E5%8E%9F%E4%B9%A6%E7%AC%AC10%E7%89%88-%E8%8B%B1%E6%96%87-%E7%AC%94%E8%AE%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Java核心技术 卷1 基础知识 原书第10版 英文 笔记 | Stronger</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Stronger</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/07/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%8D%B71-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E5%8E%9F%E4%B9%A6%E7%AC%AC10%E7%89%88-%E8%8B%B1%E6%96%87-%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Stronger">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Stronger">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java核心技术 卷1 基础知识 原书第10版 英文 笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-07 23:38:49 / 修改时间：23:41:57" itemprop="dateCreated datePublished" datetime="2020-06-07T23:38:49+08:00">2020-06-07</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>一些问题</p><ul>
+<li>动态语言</li>
+<li></li>
+</ul><h2 id="博主注"><a href="#博主注" class="headerlink" title="博主注"></a>博主注</h2><p>笔记并不全是书中内容，还有从网上等其他途径查的资料。</p><a id="more"></a>
+
+
+<h2 id="CH1-Java简介"><a href="#CH1-Java简介" class="headerlink" title="CH1 Java简介"></a>CH1 Java简介</h2><h3 id="Java名称由来"><a href="#Java名称由来" class="headerlink" title="Java名称由来"></a>Java名称由来</h3><p>Java起初的名称是Oak（起这个名字的原因可能是项目的领导者之一James Gosling办公室外有一棵橡树），后来发现该名称已被另一种语言使用，就改名为了Java。一种关于命名为Java的传闻是在命名时项目组中的一人在喝名为Java的咖啡，因此起名为Java。有人为此专门采访了项目组的成员，但是大家基本上都无法详细说出命名为Java的真正原因，它出现在这次命名会议中，作为多个候选名字中的一个，最终获得通过，该采访可以在这篇<a href="https://www.javaworld.com/article/2077265/so-why-did-they-decide-to-call-it-java-.html" target="_blank" rel="noopener">文章</a>中看到。</p>
+<h3 id="java发展历程"><a href="#java发展历程" class="headerlink" title="java发展历程"></a>java发展历程</h3><p>1991年，Sun公司中由Patrick Naughton和James Gosling领导的一个工程师组想要为消费者设备（如有线电视开关盒）开发一种语言，这个项目被称为Green。</p>
+<p>1992年，Green项目发布了第一款产品，称作“*7”，然而他们的产品找不到购买的厂商。</p>
+<p>后来该项目改名为“First Person, Inc”，由于找不到购买者，该项目在1994年解散。</p>
+<p>与此同时，万维网也迅猛地发展着。为了展示Java的功能，Java语言开发者开发了一个浏览器——HotJava，这激发了使用Java的热潮。</p>
+<p>Sun公司在1996年发布了第一版的Java，之后陆续发布了更多的版本。直到2009年Sun公司被Oracle公司收购，此后，Java便由Oracle公司进行维护，截止到Java8的版本发布历史可以见下图。</p>
+<p><img src="Java%E5%8F%91%E5%B8%83%E5%8E%86%E5%8F%B2.png" alt="Java发布历史"></p>
+<h3 id="Java白皮书"><a href="#Java白皮书" class="headerlink" title="Java白皮书"></a>Java白皮书</h3><p>Java的作者写了一篇很有影响力的白皮书（white paper）来介绍Java的目标和成就，他们还发布了一篇简短的概述，按照一下11个流行语（buzzwords）进行组织，可以在此处找到<a href="https://horstmann.com/corejava/java-an-overview/7Gosling.pdf" target="_blank" rel="noopener">概述的全文</a>。</p>
+<ol>
+<li>Simple</li>
+<li>Object-Oriented</li>
+<li>Distributed</li>
+<li>Robust</li>
+<li>Secure</li>
+<li>Architecture-Neutral</li>
+<li>Portable</li>
+<li>Interpreted</li>
+<li>High-Performance</li>
+<li>Multithreaded</li>
+<li>Dynamic</li>
+</ol>
+<h3 id="java-applets"><a href="#java-applets" class="headerlink" title="java applets"></a>java applets</h3><p>运行在web页面上的Java程序称为applets，它可以像图片一样嵌入在网页中，但是可以与用户进行交互。applets出现时，引起了很大的轰动。</p>
+<h2 id="CH2-Java编程环境"><a href="#CH2-Java编程环境" class="headerlink" title="CH2 Java编程环境"></a>CH2 Java编程环境</h2><h3 id="JDK相关概念"><a href="#JDK相关概念" class="headerlink" title="JDK相关概念"></a>JDK相关概念</h3><h4 id="JDK与JRE区别"><a href="#JDK与JRE区别" class="headerlink" title="JDK与JRE区别"></a>JDK与JRE区别</h4><p>JDK是Java Development Kit（Java开发工具集）的缩写，它是面向Java程序开发者的。JDK一般指Java SE JDK，使用Java开发时一般也是下载Java SE JDK。</p>
+<p>JRE是Java Runtime Environment（Java运行时环境）的缩写，与JDK相比，它不含有Java编译器，面向最终使用Java程序的用户。</p>
+<p>关于JDK和JRE更详细的概念和区别可以看这个<a href="https://www.oracle.com/java/technologies/platform-glance.html" target="_blank" rel="noopener">网页</a>。</p>
+<h4 id="JDK版本的命名"><a href="#JDK版本的命名" class="headerlink" title="JDK版本的命名"></a>JDK版本的命名</h4><p>起初JDK的版本命名为JDK1.0、JDK1.1这样的格式。</p>
+<p>在发布JDK1.2时，Sun将Java改名为Java 2，并且为了区分SE版本和EE版本与ME版本，将JDK称作J2SE（Java 2 Standard Edition），因此JDK1.2的名称变为J2SE1.2，这一命名规则持续到版本J2SE5.0（5.0和1.5.0是同一版本，5.0是产品编号，1.5.0是开发者编号）。此外，在1.2到1.4版本期间，JDK被称为SDK（Software Development Kit）。</p>
+<p>从Java SE 6版本开始，将J2SE改称Java SE，产品编号6.0改为6，开发者编号规则不变（即1.6.0），这一规则到2020年尚未改变。</p>
+<p>Java SE 8u31这种编号指的是Java SE 8的第31次更新，内部开发者编号为1.8.0_31，以此类推。</p>
+<p>总结</p>
+<ul>
+<li>Java 2基本等同于Java，并不等同于JDK1.2，是一个过时的称号，同理，J2EE等同于Java EE。</li>
+<li>SDK在Java SE种也是过时的称号，它目前多指Java EE的开发工具集。</li>
+<li>Java SE 6 = Java 6 = JDK 1.6，其他版本同理。</li>
+</ul>
+<p>下表是一部分Java版本的名称和发布时间。</p>
+<table>
+<thead>
+<tr>
+<th align="center">版本</th>
+<th align="center">发布时间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">JDK Beta</td>
+<td align="center">1995</td>
+</tr>
+<tr>
+<td align="center">JDK 1.0</td>
+<td align="center">January 1996</td>
+</tr>
+<tr>
+<td align="center">JDK 1.1</td>
+<td align="center">February 1997</td>
+</tr>
+<tr>
+<td align="center">J2SE 1.2</td>
+<td align="center">December 1998</td>
+</tr>
+<tr>
+<td align="center">J2SE 1.3</td>
+<td align="center">May 2000</td>
+</tr>
+<tr>
+<td align="center">J2SE 1.4</td>
+<td align="center">February 2002</td>
+</tr>
+<tr>
+<td align="center">J2SE 5.0</td>
+<td align="center">September 2004</td>
+</tr>
+<tr>
+<td align="center">Java SE 6</td>
+<td align="center">December 2006</td>
+</tr>
+<tr>
+<td align="center">Java SE 7</td>
+<td align="center">July 2011</td>
+</tr>
+<tr>
+<td align="center">Java SE 8 (LTS)</td>
+<td align="center">March 2014</td>
+</tr>
+<tr>
+<td align="center">Java SE 9</td>
+<td align="center">September 2017</td>
+</tr>
+<tr>
+<td align="center">Java SE 10</td>
+<td align="center">March 2018</td>
+</tr>
+<tr>
+<td align="center">Java SE 11 (LTS)</td>
+<td align="center">September 2018</td>
+</tr>
+<tr>
+<td align="center">Java SE 12</td>
+<td align="center">March 2019</td>
+</tr>
+<tr>
+<td align="center">Java SE 13</td>
+<td align="center">September 2019</td>
+</tr>
+<tr>
+<td align="center"><strong>Java SE 14</strong></td>
+<td align="center">March 2020</td>
+</tr>
+</tbody></table>
+<p>更多的信息可以参考：</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Java_version_history" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Java_version_history</a></li>
+<li><a href="https://www.oracle.com/java/technologies/oracle-java-archive-downloads.html" target="_blank" rel="noopener">https://www.oracle.com/java/technologies/oracle-java-archive-downloads.html</a></li>
+</ul>
+<h4 id="Java-SE-EE-ME区别"><a href="#Java-SE-EE-ME区别" class="headerlink" title="Java SE/EE/ME区别"></a>Java SE/EE/ME区别</h4><p>Java是一门语言 + 一个平台，语言提供书写的语法，平台提供Java程序运行的环境。</p>
+<p>Java有多种平台，我们经常提到的Java SE、Java EE、Java ME便是其中的3种平台。</p>
+<ul>
+<li>Java Platform, Standard Edition (Java SE)</li>
+<li>Java Platform, Enterprise Edition (Java EE)</li>
+<li>Java Platform, Micro Edition (Java ME)</li>
+</ul>
+<p>每一个平台都会提供一个JVM（Java Virtual Machine）和一组API。SE版本提供基础的API，此外还包括一些开发工具等，面向普通用户。EE版本建立在SE版本之上，它为大规模的应用提供更多的API（似乎试通过调用SE的API来构成新的API？）和运行时环境，面向企业用户。ME版本提供的API是SE版本API的子集，JVM也是小型的，用于嵌入式设备等小型设备的开发。此外，JDK一般指SE版本，另外两个版本的开发工具集一般不称作JDK。</p>
+<p>上述内容部分总结自该<a href="https://docs.oracle.com/javaee/6/firstcup/doc/gkhoy.html" target="_blank" rel="noopener">网页</a>。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
+<li><p>JDK一般指Java SE JDK，EE版本等其他版本一般不称作JDK。</p>
+</li>
+<li><p>使用Java编程时一般是下载Java SE JDK（即JDK），如果需要用到Java EE，我们可以通过maven等方式引入相关的包。</p>
+</li>
+</ul>
+<p>上面提到的概念是针对于Oracle JDK而言的，而实际上JDK不止一种，厂商也不止一家。关于Java还有很多的概念如JCP、JLS、JSR等，之后再补。</p>
+<h3 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a>JDK安装</h3><p>下面记录在windows上安装JDK的过程。打开网页<a href="https://www.oracle.com/java/technologies/oracle-java-archive-downloads.html，找到下图所示内容" target="_blank" rel="noopener">https://www.oracle.com/java/technologies/oracle-java-archive-downloads.html，找到下图所示内容</a></p>
+<p><img src="Java%E4%B8%8B%E8%BD%BD%E7%89%88%E6%9C%AC.png" alt="Java下载版本"></p>
+<p>选择一个版本，此处示例选择版本Java SE 14，点击后找到下图所示内容，下载红框所选文件（需要注册一个Oracle账号登录）</p>
+<p><img src="%E4%B8%8B%E8%BD%BDJava14.png" alt="下载Java14.png"></p>
+<p>双击下载好的文件，出现下面的页面</p>
+<p><img src="JDK%E5%AE%89%E8%A3%85%E5%90%91%E5%AF%BC1.png" alt="JDK安装向导1"></p>
+<p>点击下一步</p>
+<p><img src="JDK%E5%AE%89%E8%A3%85%E5%90%91%E5%AF%BC2.png" alt="JDK安装向导2"></p>
+<p>更改安装位置后点击下一步，之后点击关闭就安装完成了。但是还需要设置一下环境变量，设置环境变量的目的是让Windows无论在哪个路径下都可以执行Java的命令。</p>
+<p>在Windows右下角的搜索框输入  编辑系统环境变量</p>
+<p><img src="%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F1.png" alt="设置环境变量1"></p>
+<p>打开该页面</p>
+<p><img src="%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F2.png" alt="设置环境变量2"></p>
+<p>点击环境变量，找到下边系统变量中的Path双击。</p>
+<p><img src="%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F3.png" alt="设置环境变量3"></p>
+<p>将~/jdk/bin所在的路径添加进去，确定即可，此处示例的路径为H:\jdk\jdk14\bin。</p>
+<p><img src="%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F4.png" alt="设置环境变量4"></p>
+<p>然后打开cmd，输入java -version，出现以下内容就表示环境变量配置成功了。</p>
+<p><img src="%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F5.png" alt="设置环境变量5"></p>
+<h3 id="一个Java程序"><a href="#一个Java程序" class="headerlink" title="一个Java程序"></a>一个Java程序</h3><p>程序代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * This program displays a greeting for the reader.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.30 2014-02-27</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Cay Horstmann</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// 该文件命名为Welcome.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Welcome</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">      String greeting = <span class="string">"Welcome to Core Java!"</span>;</span><br><span class="line">      System.out.println(greeting);</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; greeting.length(); i++)</span><br><span class="line">         System.out.print(<span class="string">"="</span>);</span><br><span class="line">      System.out.println();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在该文件所在目录下打开cmd，输入<code>javac Welcome.java</code>，这个命令是将Java文件编译成字节码文件，执行之后该目录下会多出一个名为Welcome.class的文件，这个就是编译出来的字节码文件，然后输入<code>java Welcome</code>，这个命令是执行该字节码文件，会看到下面的输出</p>
+<p><img src="%E7%AC%AC%E4%B8%80%E4%B8%AAJava%E7%A8%8B%E5%BA%8F.png" alt="第一个Java程序"></p>
+<p>这就是一个简单的Java程序从编写到输出的过程。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6/" rel="prev" title="操作系统-处理机调度">
+      <i class="fa fa-chevron-left"></i> 操作系统-处理机调度
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#博主注"><span class="nav-number">1.</span> <span class="nav-text">博主注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CH1-Java简介"><span class="nav-number">2.</span> <span class="nav-text">CH1 Java简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java名称由来"><span class="nav-number">2.1.</span> <span class="nav-text">Java名称由来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java发展历程"><span class="nav-number">2.2.</span> <span class="nav-text">java发展历程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java白皮书"><span class="nav-number">2.3.</span> <span class="nav-text">Java白皮书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java-applets"><span class="nav-number">2.4.</span> <span class="nav-text">java applets</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CH2-Java编程环境"><span class="nav-number">3.</span> <span class="nav-text">CH2 Java编程环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JDK相关概念"><span class="nav-number">3.1.</span> <span class="nav-text">JDK相关概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JDK与JRE区别"><span class="nav-number">3.1.1.</span> <span class="nav-text">JDK与JRE区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JDK版本的命名"><span class="nav-number">3.1.2.</span> <span class="nav-text">JDK版本的命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java-SE-EE-ME区别"><span class="nav-number">3.1.3.</span> <span class="nav-text">Java SE/EE/ME区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">3.1.4.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JDK安装"><span class="nav-number">3.2.</span> <span class="nav-text">JDK安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个Java程序"><span class="nav-number">3.3.</span> <span class="nav-text">一个Java程序</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Stronger"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Stronger</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Stronger</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.5.0
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
